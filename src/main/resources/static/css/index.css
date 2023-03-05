@@ -1,0 +1,102 @@
+html {
+    background-color: #fffffc;
+}
+#app{
+    min-height: 280px;
+    max-width: 640px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+.div1 {
+    width: 460px;
+    height: 80px;
+}
+.div2 {
+    width: 170px;
+    height: 80px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+.div3{
+    height: 35px;
+    line-height: 35px;
+}
+.div4{
+    height: 35px;
+    margin-top: 10px;
+    line-height: 35px;
+}
+.button1{
+    width: 170px;
+    height:35px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c0ccda;
+}
+.button2{
+    width: 170px;
+    height:35px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div5{
+    width: 460px;
+    height: 100px;
+}
+.div6{
+    width: 170px;
+    height: 100px;
+    margin-left: 10px;
+}
+.div7{
+    height: 45px;
+    line-height: 45px;
+    padding-left: 8px;
+    font-size: 18px;
+    color: #c0ccda;
+}
+.div8{
+    height: 45px;
+    line-height: 45px;
+    margin-top: 10px;
+    padding-left: 8px;
+    font-size: 18px;
+    color: #c0ccda;
+}
+.div9{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #c0ccda;
+}
+.div10{
+    height: 30px;
+    line-height: 30px;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #c0ccda;
+}
+.div11{
+    height: 30px;
+    line-height: 30px;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #c0ccda;
+}
+.input1{
+    width: 450px;
+    height: 78px;
+    line-height: 80px;
+    padding-left: 8px;
+    font-size: 18px;
+    border: 1px solid #c0ccda;
+    color: #c0ccda;
+    outline: none;
+}
+.input1::-webkit-input-placeholder{
+    color: #c0ccda;
+}
