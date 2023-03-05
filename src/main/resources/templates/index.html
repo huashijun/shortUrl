@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>有趣有用的短链接服务</title>
+    <script src="/static/js/vue.js" type="text/javascript"></script>
+    <script src="/static/js/index.js" type="text/javascript"></script>
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/element-ui.css" rel="stylesheet" type="text/css">
+    <script src="/static/js/axios.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div id="app">
+    <div style="height: 80px;line-height: 80px;text-align: center;margin-top: 150px;font-size: 40px;color: #c0ccda">一个有趣有用的短链接服务</div>
+    <div style="height: 80px;line-height: 80px;text-align: center;margin-top: 10px;display: flex">
+        <div class="div1">
+            <input placeholder="请输入连接地址" id="input1" class="input1"/>
+        </div>
+        <div class="div2">
+            <div class="div3">
+                <el-button class="button1" @click="generateShortUrl">生成短链接</el-button>
+            </div>
+            <div class="div4">
+                <el-button class="button2" @click="analyseShortUrl">短链接统计</el-button>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px;line-height: 100px;margin-top: 10px;display: flex">
+        <div class="div5">
+            <div class="div7">{{longUrl}}</div>
+            <div class="div8">{{shortUrl}}</div>
+        </div>
+        <div class="div6">
+            <div class="div9">{{pvNum}}</div>
+            <div class="div10">{{uvNum}}</div>
+            <div class="div11">{{ipNum}}</div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data(){
+            return {
+                longUrl: '',
+                shortUrl: '',
+                pvNum: '',
+                uvNum: '',
+                ipNum: '',
+            }
+        },
+
+        filters: {},
+        mounted: function () {
+        },
+        created(){
+            console.log("初始化请求数据的方法");
+        },
+        methods: {
+            generateShortUrl(){
+                const longUrl = document.getElementById("input1").value;
+                axios({
+                    method:'get',
+                    url:'/shortUrl/generate',
+                    params:{
+                        longUrl: longUrl
+                    }
+                }).then((res)=>{
+                    this.longUrl = '原链接：' + res.data.longUrl;
+                    this.shortUrl = '短链接：' + res.data.shortUrl;
+                });
+            },
+            analyseShortUrl() {
+                const shortUrl = document.getElementById("input1").value;
+                axios({
+                    method:'get',
+                    url:'/shortUrl/analyse',
+                    params:{
+                        shortUrl: shortUrl
+                    },
+                }).then((res)=>{
+                    this.longUrl = '原链接：' + res.data.longUrl;
+                    this.shortUrl = '短链接：' + res.data.shortUrl;
+                    this.pvNum = '浏览量：' + res.data.pvNum;
+                    this.uvNum = '访客量：' + res.data.uvNum;
+                    this.ipNum = 'ip数量：' + res.data.ipNum
+
+                });
+            },
+        }
+    });
+
+</script>
+</html>
